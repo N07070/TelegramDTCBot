@@ -40,10 +40,14 @@ class DTCScrapper(object):
                 every_content =  unicode(every_content).replace('&lt;',"<")
                 every_content =  unicode(every_content).replace('&gt;',">")
 
+
+                # If theire is nothing, then don't add it.
                 if every_content == '' or every_content == " ":
                     pass
                 else:
                     elements.append(every_content)
+
+
 
             return elements
         except:
