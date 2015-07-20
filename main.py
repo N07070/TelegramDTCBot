@@ -5,7 +5,7 @@ import telebot  # https://github.com/eternnoir/pyTelegramBotAPI
 import random
 from DTCScrapper import DTCScrapper
 
-TOKEN = '117836291:AAEFICSt5P4aaSHnfWm7BEMGCiiyRBIlJGI'
+TOKEN = ''
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -13,12 +13,12 @@ def quote():
     """
     Gets a new quote from the DTC website
     """
-
     e = DTCScrapper()
 
     url_of_the_quote = "http://danstonchat.com/"+str(random.randint(1,16000))+".html"
     final_quote = ""
     iter = 0
+    a = ""
     for a in e.main(url_of_the_quote):
         if iter % 2 == 0 :
             final_quote += a
