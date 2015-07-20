@@ -6,13 +6,9 @@ This script gets all the quotes from danstonchat, the french quote website.
 
 from bs4 import BeautifulSoup
 import urllib2
-import re
 
 # Main variables
 elements = []
-list_links = []
-liste_quote = []
-
 
 class DTCScrapper(object):
     """Class to get the quotes form danstonchat.fr"""
@@ -22,11 +18,10 @@ class DTCScrapper(object):
         web_page_content = ""
         try:
             web_page_content = urllib2.urlopen(url)
+            return web_page_content
         except:
             print("Error, I could not the content from the page " + str(url))
-            print("==================")
-            pass
-        return web_page_content
+            return False
 
     # From that web page, I get the part of the html with the quote in it.
     def extract_quote_from_html(self,html_page,url):
@@ -47,15 +42,14 @@ class DTCScrapper(object):
                 else:
                     elements.append(every_content)
 
-
-
             return elements
         except:
-            pass
+            return False
 
     # Then, I mix up both of them in order.
     def main(self,url):
         try:
             return self.extract_quote_from_html(self.get_web_page_content(url),url)
         except:
-            pass
+            print("Error : Something failed.")
+            return False
