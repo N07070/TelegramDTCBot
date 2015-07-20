@@ -3,9 +3,10 @@
 
 import telebot  # https://github.com/eternnoir/pyTelegramBotAPI
 import random
+from token_file import token_var
 from DTCScrapper import DTCScrapper
 
-TOKEN = ''
+TOKEN = token_var
 
 bot = telebot.TeleBot(TOKEN)
 
